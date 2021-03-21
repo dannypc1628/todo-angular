@@ -29,13 +29,16 @@
                   <span class="" *ngFor="let number of [].constructor(item.tomatoCount)">
                     <img class="tomato-icon" src="./assets/images/iconfinder_tomato_104338.png">
                   </span>
+                  <!-- <span>
+                    <img (click)="edit(item.id)" class="tomato-icon" src="./assets/images/iconfinder_edit-change-pencil_2931178.png" alt="">
+                  </span> -->
                 </div>
               </div>
             </ng-container>
           </div>
         </div>
         <div class="col-12 my-3">
-          <p>已完成事項</p>{{todos}}
+          <p>已完成事項</p>
           <div *ngFor="let item of todos;let i = index" class="row">
             <ng-container *ngIf="true==item.completed">
               <div class="col-1 pr-1">
@@ -45,7 +48,11 @@
               </div>
               <div class="col-11 pl-0 d-flex justify-content-between">
                 <div>
-                  <label for="todo_{{item.id}}">{{item.title}}</label>
+                  <label for="todo_{{item.id}}" class="del">
+                    <del>
+                      {{item.title}}
+                    </del>
+                  </label>
                 </div>
                 <div>
                   <span>
