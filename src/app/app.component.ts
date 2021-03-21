@@ -1,4 +1,4 @@
-import { Component, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Todo } from './interface/todo';
 
 @Component({
@@ -19,11 +19,7 @@ export class AppComponent implements OnInit {
       this.todos = JSON.parse(data);
     }
   }
-  // ngOnChanges(changes: SimpleChanges): void {
-  //   //Called before any other lifecycle hook. Use it to inject dependencies, but avoid any serious work here.
-  //   //Add '${implements OnChanges}' to the class.
-  //   this.save();
-  // }
+
   create() {
     const newTodo: Todo = {
       title: this.todoInput,
