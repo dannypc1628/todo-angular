@@ -28,4 +28,9 @@ export class AppComponent implements OnInit {
   }
 
   private editTodo() {}
+
+  addTomato(id:number){
+    const todo = this.todos.find(x=>x.id === id);
+    todo.tomatoCount = todo.tomatoCount+1;
+  }
 }

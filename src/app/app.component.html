@@ -1,37 +1,64 @@
 <div class="container">
-  <div class="row">
-    <div class="col-10 ">
-      <input type="text" placeholder="代辦事項" class="form-control"
-      (keyup.Enter)="create()" [(ngModel)]="todoInput" >
-    </div>
-    <div class="col-2">
-      <button type="button" class="btn btn-primary">Primary</button>
-    </div>
-  </div>
-
-  <div class="row">
-    <div class="col-12">
-      <p>待辦事項</p>
-      <div *ngFor="let item of todos;let i = index">
-        <ng-container *ngIf="false==item.completed">
-          <input type="checkbox" id="todo_{{item.id}}">
-          <label for="todo_{{item.id}}">{{item.title}}</label>
-          <span class="" *ngFor="let number of [].constructor(item.tomatoCount)">
-            <img src="./assets/images/iconfinder_tomato_104338.png">
-          </span>
-        </ng-container>
+  <div class="row justify-content-center">
+    <div class="col-6">
+      <div class="row">
+        <div class="col-12 ">
+          <input type="text" placeholder="新增代辦事項" class="form-control"
+          (keyup.Enter)="create()" [(ngModel)]="todoInput" >
+        </div>
       </div>
-    </div>
-    <div class="col-12">
-      <p>已完成事項</p>{{todos}}
-      <div *ngFor="let item of todos;let i = index">
-        <ng-container *ngIf="true==item.completed">
-          <input type="checkbox" id="todo_{{item.id}}">
-          <label for="todo_{{item.id}}">{{item.title}}</label>
-          <span class="" *ngFor="let number of [].constructor(item.tomatoCount)">
-            <img src="./assets/images/iconfinder_tomato_104338.png">
-          </span>
-        </ng-container>
+
+      <div class="row">
+        <div class="col-12 my-3">
+          <p>待辦事項</p>
+          <div *ngFor="let item of todos;let i = index" class="row">
+            <ng-container *ngIf="false==item.completed">
+              <div class="col-1 pr-1">
+                <input type="checkbox" id="todo_{{item.id}}"
+                [(ngModel)]="item.completed"
+                class="">
+              </div>
+              <div class="col-11 pl-0 d-flex justify-content-between">
+                <div>
+                  <label for="todo_{{item.id}}">{{item.title}}</label>
+                </div>
+                <div>
+                  <span>
+                    <img (click)="addTomato(item.id)" class="tomato-icon" src="./assets/images/iconfinder_ic_exposure_plus_1_48px_352336.png" alt="">
+                  </span>
+                  <span class="" *ngFor="let number of [].constructor(item.tomatoCount)">
+                    <img class="tomato-icon" src="./assets/images/iconfinder_tomato_104338.png">
+                  </span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
+        <div class="col-12 my-3">
+          <p>已完成事項</p>{{todos}}
+          <div *ngFor="let item of todos;let i = index" class="row">
+            <ng-container *ngIf="true==item.completed">
+              <div class="col-1 pr-1">
+                <input type="checkbox" id="todo_{{item.id}}"
+                [(ngModel)]="item.completed"
+                class="">
+              </div>
+              <div class="col-11 pl-0 d-flex justify-content-between">
+                <div>
+                  <label for="todo_{{item.id}}">{{item.title}}</label>
+                </div>
+                <div>
+                  <span>
+                    <img (click)="addTomato(item.id)" class="tomato-icon" src="./assets/images/iconfinder_ic_exposure_plus_1_48px_352336.png" alt="">
+                  </span>
+                  <span class="" *ngFor="let number of [].constructor(item.tomatoCount)">
+                    <img class="tomato-icon" src="./assets/images/iconfinder_tomato_104338.png">
+                  </span>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </div>
       </div>
     </div>
   </div>
